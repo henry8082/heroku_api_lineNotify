@@ -1,0 +1,18 @@
+{
+  "posts":[
+    {
+      "id" : 0,
+      "event": "First post!",
+      "date" : "My first content!",
+	  "time": "My first content!",
+	  
+    }
+  ],
+  "comments" : [
+    {
+      "id": 0,
+      "content": "Wow such content!",
+      "username": "zero_cool"
+    }
+  ]
+}
