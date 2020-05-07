@@ -1,5 +1,5 @@
 from flask import Flask,jsonify,request,render_template
-import db
+import db,os
 
 app = Flask(__name__)
 stores = [{
@@ -60,4 +60,5 @@ def create_item_in_store(name):
         store['items'].append(new_item)
         return jsonify(new_item)
     
-app.run(debug=True)
+app.run(host=os.getenv('IP', '0.0.0.0'), 
+        port=int(os.getenv('PORT', 4444)))
