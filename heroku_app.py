@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,request,render_template
 import os
-from flask_cors import cross_origin
+from flask_cors import CORS
 import psycopg2
 
 def insert(event,date,time):
@@ -17,7 +17,7 @@ def insert(event,date,time):
 
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 stores = [{
     'name': "Elton's first store",
     'items': [{'name':'my item 1', 'price': 30 }],
@@ -52,7 +52,6 @@ def get_item_in_store(name):
     return jsonify ({'message':'store not found'})
 #post /store data: {name :}
 @app.route('/store' , methods=['POST'])
-@cross_origin()
 def create_event():
     request_data = request.get_json()
     new_store = {
