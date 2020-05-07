@@ -60,4 +60,4 @@ def create_item_in_store(name):
         store['items'].append(new_item)
         return jsonify(new_item)
     
-app.run(debud=True)
+app.run(debug=True)
