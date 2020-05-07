@@ -1,4 +1,4 @@
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,render_template
 import db
 
 app = Flask(__name__)
@@ -11,6 +11,12 @@ stores = [{
     'items': [{'name':'my item 2', 'price': 15 }],
     },
 ]
+#get html
+@app.route('/test')
+def get_html():
+    return render_template('test.html')
+
+
 #get /store
 @app.route('/store')
 def get_stores():
