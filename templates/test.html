@@ -79,7 +79,14 @@
             event:event,
             date:date,
             time:time
-          }
+          },
+          success: function() {
+            document.write("success");
+		      },
+		   error:function(XMLHttpRequest, textStatus, errorThrown){
+           document.write('\nXMLHttpRequest'+XMLHttpRequest);
+           document.write('\ntextStatus'+textStatus);
+           document.write('\nerrorThrown'+errorThrown);}
         })
       }) 
     </script>
