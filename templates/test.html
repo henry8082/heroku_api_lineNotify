@@ -18,7 +18,7 @@
 			return;
 		};
       $.ajax({
-          url:'http://henry-json-server.herokuapp.com/store',
+          url:'https://henry-json-server.herokuapp.com/posts',
           method:'post',
           dataType:'json',
           data:{
@@ -72,7 +72,7 @@
         let time = $('.col-12 > input[name=time]').val().trim()
         if(!time) return false;
         $.ajax({
-          url:'https://henry-json-server.herokuapp.com/comments',
+          url:'http://henry-json-server.herokuapp.com/store',
           method:'post',
           dataType:'json',
           data:{
