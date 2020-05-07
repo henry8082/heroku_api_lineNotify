@@ -1,7 +1,23 @@
 from flask import Flask,jsonify,request,render_template
-import db,os
+import os
+from flask_cors import cross_origin
+import psycopg2
+
+def insert(event,date,time):
+    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
+
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    cursor = conn.cursor()
+    
+    cursor.execute("insert into events(event,date,time) values({},{},{})".format(event,date,time))
+        
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 
 app = Flask(__name__)
+#CORS(app)
 stores = [{
     'name': "Elton's first store",
     'items': [{'name':'my item 1', 'price': 30 }],
@@ -36,6 +52,7 @@ def get_item_in_store(name):
     return jsonify ({'message':'store not found'})
 #post /store data: {name :}
 @app.route('/store' , methods=['POST'])
+@cross_origin()
 def create_event():
     request_data = request.get_json()
     new_store = {
@@ -43,7 +60,7 @@ def create_event():
         'date':request_data['date'],
         'time':request_data['time']
     }
-    #db.insert(request_data['event'],request_data['date'],request_data['time'])
+    insert(request_data['event'],request_data['date'],request_data['time'])
     stores.append(new_store)
     
     return jsonify(new_store)
