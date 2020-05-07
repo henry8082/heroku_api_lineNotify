@@ -43,7 +43,7 @@ def create_event():
         'date':request_data['date'],
         'time':request_data['time']
     }
-    db.insert(request_data['event'],request_data['date'],request_data['time'])
+    #db.insert(request_data['event'],request_data['date'],request_data['time'])
     stores.append(new_store)
     
     return jsonify(new_store)
