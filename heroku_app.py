@@ -1,23 +1,23 @@
 from flask import Flask,jsonify,request,render_template
 import os
-from flask_cors import CORS
-import psycopg2
+#from flask_cors import CORS
+#import psycopg2
 
-def insert(event,date,time):
-    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
-
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    cursor = conn.cursor()
+# def insert(event,date,time):
+#     DATABASE_URL = os.environ['DATABASE_URL']
+#     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#     cursor = conn.cursor()
     
-    cursor.execute("insert into events(event,date,time) values({},{},{})".format(event,date,time))
+#     cursor.execute("insert into events(event,date,time) values('{}','{}','{}');".format(event,date,time))
         
-    conn.commit()
-    cursor.close()
-    conn.close()
+#     conn.commit()
+#     cursor.close()
+#     conn.close()
 
 
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
+
 stores = [{
     'name': "Elton's first store",
     'items': [{'name':'my item 1', 'price': 30 }],
@@ -43,6 +43,7 @@ def get_store(name):
         if store['name'] == name:
             return jsonify(store)
         return jsonify ({'message': 'store not found'})
+    
 #get /store/<name>/item data: {name :}
 @app.route('/store/<string:name>/item')
 def get_item_in_store(name):
@@ -50,6 +51,7 @@ def get_item_in_store(name):
         if store['name'] == name:
             return jsonify( {'items':store['items'] } )
     return jsonify ({'message':'store not found'})
+
 #post /store data: {name :}
 @app.route('/store' , methods=['POST'])
 def create_event():
@@ -77,4 +79,4 @@ def create_item_in_store(name):
         return jsonify(new_item)
     
 app.run(host=os.getenv('IP', '0.0.0.0'), 
-        port=int(os.getenv('PORT', 4444)))
+        port=int(os.getenv('PORT', 5555)))

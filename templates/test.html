@@ -75,11 +75,12 @@
           url:'http://henry-json-server.herokuapp.com/store',
           method:'post',
           dataType:'json',
-          data:{
+          data:JSON.stringify({
             event:event,
             date:date,
             time:time
-          },
+          }),
+          contentType: "application/json",
           success: function() {
             document.write("success");
 		      },
