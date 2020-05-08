@@ -17,25 +17,19 @@ def insert(event,date,time):
 
 app = Flask(__name__)
 CORS(app)
-stores = [{
-    'name': "Elton's first store",
-    'items': [{'name':'my item 1', 'price': 30 }],
-    },
-    {
-    'name': "Elton's second store",
-    'items': [{'name':'my item 2', 'price': 15 }],
-    },
-]
+stores = []
+
 #get html
-@app.route('/test')
+@app.route('/liff')
 def get_html():
-    return render_template('test.html')
+    return render_template('liff.html')
 
 
 #get /store
 @app.route('/store')
 def get_stores():
     return jsonify(stores)
+
 @app.route('/store/<string:name>')
 def get_store(name):
     for store in stores:
