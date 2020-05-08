@@ -77,5 +77,4 @@ def create_item_in_store(name):
         return jsonify(new_item)
     
 app.run(host=os.getenv('IP', '0.0.0.0'), 
-        port=int(os.getenv('PORT', 4444)), 
-        debug=True)
+        port=int(os.getenv('PORT', 4444)))
