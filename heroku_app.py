@@ -29,7 +29,6 @@ def get_html():
 @app.route('/store')
 def get_stores():
     return jsonify(stores)
-
 @app.route('/store/<string:name>')
 def get_store(name):
     for store in stores:
