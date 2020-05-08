@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LIFF 表單測試</title>
+    <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+  
+	/*function initializeApp(data) {  //初始化LIFF
+		var userid = data.context.userId;  //取得ID
+	}
+      
+	$(document).ready(function () {
+		liff.init(function (data) {  //初始化LIFF
+			initializeApp(data);
+		});
+  });*/
+ 
+		//$('#sure').click(function (e) {  //按下確定鈕
+      //pushMsg($('#event').val(), $('#date').val(), $('#time').val())
+      //then(() => {
+				//liff.closeWindow();  //關閉視窗;
+		//}); 
+	
+</script>
+</head>
+<body>
+    <div class="row" style="margin: 10px">
+        <div class="col-12" style="margin: 10px">
+            <label>提醒事項</label>
+            <input type="text" id="event" class="form-control" name="event" />
+            <br />
+            <label>日期</label>
+            <input type="date" id="date" value="" class="form-control" name="date" />
+            <br />
+            <label>時間</label>
+            <input type="time" id="time" value="" class="form-control" name="time" />
+            <br />
+            <button class="btn btn-success btn-block" id="sure" href="javascript:;">確定</button>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+    $('#sure').on('click',function(){
+        let event = $('.col-12 > input[name=event]').val().trim()
+        if(!event) return false;
+        let date = $('.col-12 > input[name=date]').val().trim()
+        if(!date) return false;
+        let time = $('.col-12 > input[name=time]').val().trim()
+        if(!time) return false;
+        $.ajax({
+          url:'https://henry-json-server.herokuapp.com/store',
+          method:'post',
+          dataType:'json',
+          crossDomain:true,
+          timeout : 10000,
+          data:JSON.stringify({
+            event:event,
+            date:date,
+            time:time
+          }),
+          contentType: "application/json",
+          success: function(e) {
+            alert('成功')/*.then(() => {
+				          liff.closeWindow();})  //關閉視窗;
+            //document.write("success");*/
+		      },
+		   error:function(XMLHttpRequest, textStatus, errorThrown){
+           alert(textStatus)
+           //document.write('\nXMLHttpRequest'+XMLHttpRequest);
+           //document.write('\ntextStatus'+textStatus);
+           //document.write('\nerrorThrown'+errorThrown);}
+          }
+        })
+      }) 
+    </script>
+</body>
+</html>
