@@ -1,1 +1,1 @@
-web: gunicorn heroku_app:app --preload
+web: gunicorn -b :$PORT heroku_app:app --preload
