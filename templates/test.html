@@ -11,24 +11,6 @@
 	function initializeApp(data) {  //初始化LIFF
 		var userid = data.context.userId;  //取得ID
 	}
-
-	function pushMsg(pevent, pdata, ptime) {
-		if (pevent == '' || pdata == '' || ptime == '') {  //資料檢查
-			alert('每個項目都必須輸入！');
-			return;
-		};
-      $.ajax({
-          url:'https://henry-json-server.herokuapp.com/posts',
-          method:'post',
-          dataType:'json',
-          data:{
-            event:pevent,
-            data:pdata,
-            time:ptime
-          }
-        })
-
-      };
       
 	//$(document).ready(function () {
 	//	liff.init(function (data) {  //初始化LIFF
@@ -75,6 +57,8 @@
           url:'http://henry-json-server.herokuapp.com/store',
           method:'post',
           dataType:'json',
+          crossDomain:true,
+          timeout : 10000,
           data:JSON.stringify({
             event:event,
             date:date,
@@ -82,12 +66,14 @@
           }),
           contentType: "application/json",
           success: function() {
-            document.write("success");
+            alert(textStatus)
+            //document.write("success");
 		      },
 		   error:function(XMLHttpRequest, textStatus, errorThrown){
-           document.write('\nXMLHttpRequest'+XMLHttpRequest);
-           document.write('\ntextStatus'+textStatus);
-           document.write('\nerrorThrown'+errorThrown);}
+           alert(textStatus)
+           //document.write('\nXMLHttpRequest'+XMLHttpRequest);
+           //document.write('\ntextStatus'+textStatus);
+           //document.write('\nerrorThrown'+errorThrown);}
         })
       }) 
     </script>
