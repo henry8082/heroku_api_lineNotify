@@ -64,8 +64,7 @@
           }),
           contentType: "application/json",
           success: function(e) {
-            alert('成功').then(() => {
-				          liff.closeWindow();})  //關閉視窗;
+            alert('成功')  //關閉視窗;
             //document.write("success");/**/
 		      },
 		   error:function(XMLHttpRequest, textStatus, errorThrown){
@@ -74,7 +73,8 @@
            //document.write('\ntextStatus'+textStatus);
            //document.write('\nerrorThrown'+errorThrown);}
           }
-        })
+        }).then(() => {
+				          liff.closeWindow();})
       }) 
     </script>
 </body>
