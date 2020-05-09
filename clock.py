@@ -5,13 +5,13 @@ import datetime
 import requests
 from datetime import timedelta
 def pushevent(event,temp):
-    token = 'kEujm1BoMS0AvgNnF8QQ8RHXbUgO3viRsI3oFrZNhTT'
+    token = '0HU2KZzhUDD3pZ2rz2RfEKsMOg1iCQhuo2b6OTdUjgN'#提醒專區的token
     headers = {
         'Content-type': 'application/x-www-form-urlencoded',
         'Authorization': f'Bearer {token}'
     } 
     payload = {
-     'message':'\n\n提醒項目：\n{}\n\n提醒時間：\n{}'.format(event,temp),
+     'message':'\n\n提醒項目：\n{}\n\n提醒時間：\n{}\n\nliff網址：\nhttps://henry-json-server.herokuapp.com/liff'.format(event,temp),
     }
 
     res = requests.post('https://notify-api.line.me/api/notify', data = payload, headers = headers)    
