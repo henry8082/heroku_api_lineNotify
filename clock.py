@@ -4,6 +4,8 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import datetime
 import requests
 from datetime import timedelta
+
+
 def pushevent(event,temp):
     token = '0HU2KZzhUDD3pZ2rz2RfEKsMOg1iCQhuo2b6OTdUjgN'#提醒專區的token
     headers = {
@@ -11,7 +13,7 @@ def pushevent(event,temp):
         'Authorization': f'Bearer {token}'
     } 
     payload = {
-     'message':'\n\n提醒項目：\n{}\n\n提醒時間：\n{}\n\nliff網址：\nhttps://henry-json-server.herokuapp.com/liff'.format(event,temp),
+     'message':'\n\n提醒項目：\n{}\n\n提醒時間：\n{}\n\nliff網址：\nhttps://liff.line.me/1654185844-JDk62Nww'.format(event,temp),
     }
 
     res = requests.post('https://notify-api.line.me/api/notify', data = payload, headers = headers)    
@@ -55,7 +57,7 @@ def scheduled_job():
             data.append(temp)
         else:
             break
-    print(data)
+    #print(data)
 
     cursor.close()
     conn.close()
@@ -73,7 +75,15 @@ def scheduled_job():
                 pushevent(i[1],temp)
                 delete_id(i[0])                
 
-sched.add_job(scheduled_job, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
+def wakeup():
+    url = "https://henry-json-server.herokuapp.com/liff"
+    requests.get(url)
+    now = datetime.datetime.now()
+    print(now)
+    
+
+sched.add_job(wakeup, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/25')
+sched.add_job(scheduled_job, 'cron', day_of_week='mon-//',hour='8-23', minute='*/1')
 sched.start()
 
 
