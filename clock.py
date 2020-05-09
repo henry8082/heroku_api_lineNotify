@@ -72,7 +72,7 @@ def scheduled_job():
                 pushevent(i[1],temp)
                 delete_id(i[0])                
 
-sched.add_job(scheduled_job, 'cron', day_of_week='mon-fri', hour=20,minute = 1)
+sched.add_job(scheduled_job, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
 sched.start()
 
 
