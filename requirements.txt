@@ -2,3 +2,6 @@ gunicorn
 Flask
 psycopg2
 flask-cors
+apscheduler
+datetime
+requests
