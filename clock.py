@@ -20,8 +20,9 @@ sched = BlockingScheduler()
 
 
 def delete_id(Id):
-    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
-
+    #DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
+    DATABASE_URL = os.environ['DATABASE_URL']
+    
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
     
@@ -38,8 +39,8 @@ def scheduled_job():
     now = datetime.datetime.now()
     print(now)
     
-    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
-
+    #DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
+    DATABASE_URL = os.environ['DATABASE_URL']
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
     
