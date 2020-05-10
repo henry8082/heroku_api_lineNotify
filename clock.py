@@ -73,8 +73,9 @@ def scheduled_job():
                 delete_id(i[0])
             elif(temp_datetime > s_time and temp_datetime < e_time and now >= s_time):
                 pushevent(i[1],temp)
-                delete_id(i[0])                
-
+                delete_id(i[0])     
+                
+@sched.scheduled_job('cron', day_of_week='mon-sun',hour='8-23', minute='*/25')
 def wakeup():
     url = "https://henry-json-server.herokuapp.com/liff"
     requests.get(url)
@@ -82,8 +83,8 @@ def wakeup():
     print(now)
     
 
-sched.add_job(wakeup, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/25')
-sched.add_job(scheduled_job, 'cron', day_of_week='mon-//',hour='8-23', minute='*/1')
+
+sched.add_job(scheduled_job, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
 sched.start()
 
 
