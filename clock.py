@@ -36,7 +36,7 @@ def delete_id(Id):
 
 
 
-#@sched.scheduled_job('cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
+@sched.scheduled_job('cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
 def scheduled_job():
     now = datetime.datetime.now()
     print(now)
@@ -84,7 +84,7 @@ def wakeup():
     
 
 
-sched.add_job(scheduled_job, 'cron', day_of_week='mon-sun',hour='8-23', minute='*/1')
+sched.add_job(scheduled_job, 'cron', day_of_week='mon-sun',hour=8)
 sched.start()
 
 
