@@ -8,7 +8,7 @@
 
 最後在所設定的時間以Line Notifiy推播
 
-### -使用 heroku / Flask / html / jinja2 / ajax / Postgres資料庫 / line Notify
+### -使用 heroku / Flask(get、post、put、delete) / html / jinja2 / ajax / Postgres資料庫 / line Notify
 
 <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397333.jpg" width = "25%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/events.PNG" width = "42%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397335.jpg" width = "30%" />
 
@@ -21,7 +21,7 @@
 
 ---------------------
 
-HTML檔是放在templates中的liff.html
+HTML檔是放在templates中的liff.html(新增資料的頁面)、table.html(查看所有事件、修改、刪除的頁面)
 
 在heroku_app.py中設定endpoint 的 route為liff時 
 
