@@ -8,9 +8,9 @@
 
 最後在所設定的時間以Line Notifiy推播
 
-### -使用 heroku/Flask/html/ajax/Postgres資料庫/line notify
+### -使用 heroku / Flask / html / jinja2 / ajax / Postgres資料庫 / line Notify
 
-<img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397333.jpg" width = "25%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/events.PNG" width = "45%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397335.jpg" width = "27%" />
+<img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397333.jpg" width = "25%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/events.PNG" width = "42%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397335.jpg" width = "30%" />
 
 ---------------------------------------
 ### 重要設定：
