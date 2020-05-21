@@ -4,8 +4,8 @@ from flask_cors import CORS
 import psycopg2
 
 def insert_update(sql):
-    #DATABASE_URL = os.environ['DATABASE_URL']
-    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
+    DATABASE_URL = os.environ['DATABASE_URL']
+    #DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
     
@@ -16,8 +16,8 @@ def insert_update(sql):
     conn.close()
     
 def Postgres_db(sql):
-    #DATABASE_URL = os.environ['DATABASE_URL']
-    DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
+    DATABASE_URL = os.environ['DATABASE_URL']
+    #DATABASE_URL = os.popen('heroku config:get DATABASE_URL -a henry-json-server').read()[:-1]
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
     
