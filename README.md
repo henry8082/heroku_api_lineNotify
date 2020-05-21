@@ -10,7 +10,7 @@
 
 ### -使用 heroku/Flask/html/ajax/Postgres資料庫/line notify
 
-<img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64241710.jpg" width = "25%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64241711.jpg" width = "30%" />
+<img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397333.jpg" width = "25%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/events.PNG" width = "45%" /> <img src="https://github.com/henry8082/heroku_api_lineNotify/blob/master/img/S__64397335.jpg" width = "30%" />
 
 ---------------------------------------
 ### 重要設定：
