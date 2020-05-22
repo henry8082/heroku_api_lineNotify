@@ -7,7 +7,7 @@ from datetime import timedelta
 
 
 def pushevent(event,temp):
-    token = '0HU2KZzhUDD3pZ2rz2RfEKsMOg1iCQhuo2b6OTdUjgN'#提醒專區的token
+    token = 'line Notify 所得到的token'#提醒專區的token
     headers = {
         'Content-type': 'application/x-www-form-urlencoded',
         'Authorization': f'Bearer {token}'
